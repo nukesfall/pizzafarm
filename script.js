@@ -172,7 +172,7 @@ const words = [
 
 const generateName = () => {
     const selectedIndices = [];
-    while (selectedIndices.length < 3) {
+    while (selectedIndices.length < 2) {
         const randomIndex = Math.floor(Math.random() * words.length);
         if (!selectedIndices.includes(randomIndex)) {
             selectedIndices.push(randomIndex);
