@@ -378,3 +378,4 @@ const generateName = () => {
 
 document.getElementById("generateBtn").addEventListener("click", generateName);
 
+
