@@ -1,27 +1,45 @@
-function checkDomain() {
-    var searchInput = document.getElementById("searchInput").value.trim();
-    var availabilityText = document.getElementById("availability");
+document.getElementById("chat-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    sendMessage();
+  });
   
-    if (searchInput === "") {
-      availabilityText.innerText = "Please enter a word.";
-      return;
-    }
+  function sendMessage() {
+    var userInput = document.getElementById("user-input").value;
+    addUserMessage(userInput);
+    getBotResponse(userInput);
+    document.getElementById("user-input").value = "";
+  }
   
-    var domain = searchInput.toLowerCase() + ".bot";
-    var url = "https://www.namecheap.com/domains/registration/results/?domain=" + domain;
+  function addUserMessage(message) {
+    var chatBox = document.getElementById("chat-box");
+    var userMessage = document.createElement("div");
+    userMessage.className = "user-message";
+    userMessage.innerText = message;
+    chatBox.appendChild(userMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
   
-    fetch(url)
-      .then(response => response.text())
-      .then(data => {
-        if (data.includes("The domain name you've entered is not available")) {
-          availabilityText.innerText = domain + " is not available.";
-        } else {
-          availabilityText.innerText = domain + " is available!";
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        availabilityText.innerText = "An error occurred. Please try again later.";
-      });
+  function addBotMessage(message) {
+    var chatBox = document.getElementById("chat-box");
+    var botMessage = document.createElement("div");
+    botMessage.className = "bot-message";
+    botMessage.innerText = message;
+    chatBox.appendChild(botMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+  
+  function getBotResponse(userInput) {
+    fetch('/query', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ input: userInput }),
+    })
+    .then(response => response.json())
+    .then(data => addBotMessage(data.output))
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
   
