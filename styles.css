@@ -1,66 +1,39 @@
-/* Base styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
 }
 
-.chat-container {
-  width: 300px;
-  margin: 50px auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
 
-.chat-box {
-  height: 300px;
-  overflow-y: scroll;
+main {
+    padding: 20px;
+    text-align: center;
 }
 
-.user-message {
-  background-color: #f0f0f0;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  text-align: right;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-.bot-message {
-  background-color: #e0e0e0;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
+button:hover {
+    background-color: #0056b3;
 }
 
-input[type="text"] {
-  width: calc(100% - 20px);
-  margin: 10px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-input[type="submit"] {
-  width: calc(100% - 20px);
-  margin: 10px;
-  padding: 5px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Media queries for responsiveness */
-@media only screen and (max-width: 600px) {
-  .chat-container {
-    width: 90%;
-    margin: 20px auto;
-  }
-
-  .user-message,
-  .bot-message {
-    margin: 5px;
-  }
+#nameContainer {
+    font-size: 20px;
+    margin-top: 20px;
 }
