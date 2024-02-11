@@ -172,15 +172,16 @@ const words = [
 
 const generateName = () => {
     const selectedIndices = [];
-    while (selectedIndices.length < 2) {
+    while (selectedIndices.length < 2) { // Change to < 1 if you want to generate one word
         const randomIndex = Math.floor(Math.random() * words.length);
         if (!selectedIndices.includes(randomIndex)) {
             selectedIndices.push(randomIndex);
         }
     }
 
-    const name = words[selectedIndices[0]] + " " + words[selectedIndices[1]] + " " + words[selectedIndices[2]];
+    const name = words[selectedIndices[0]] + " " + words[selectedIndices[1]]; // Remove + " " + words[selectedIndices[2]] if you want to generate only one word
     document.getElementById("nameContainer").innerText = name;
 };
 
 document.getElementById("generateBtn").addEventListener("click", generateName);
+
