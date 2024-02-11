@@ -119,17 +119,26 @@ const words = [
 
 
 
-const generateName = () => {
-    const selectedIndices = [];
-    while (selectedIndices.length < 1) {
-        const randomIndex = Math.floor(Math.random() * words.length);
-        if (!selectedIndices.includes(randomIndex)) {
-            selectedIndices.push(randomIndex);
+document.addEventListener('DOMContentLoaded', function () {
+    const backgroundAudio = document.getElementById('backgroundAudio');
+    const generateBtn = document.getElementById('generateBtn');
+    const nameContainer = document.getElementById('nameContainer');
+    
+    // Start playing the audio when the page loads
+    backgroundAudio.play();
+
+    const generateName = () => {
+        const selectedIndices = [];
+        while (selectedIndices.length < 1) {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            if (!selectedIndices.includes(randomIndex)) {
+                selectedIndices.push(randomIndex);
+            }
         }
-    }
 
-    const name = words[selectedIndices[0]]; // Remove + " " + words[selectedIndices[1]] if you want to generate only one word
-    document.getElementById("nameContainer").innerText = name;
-};
+        const name = words[selectedIndices[0]]; // Remove + " " + words[selectedIndices[1]] if you want to generate only one word
+        nameContainer.innerText = name;
+    };
 
-document.getElementById("generateBtn").addEventListener("click", generateName);
+    generateBtn.addEventListener("click", generateName);
+});
