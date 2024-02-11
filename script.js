@@ -123,9 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const backgroundAudio = document.getElementById('backgroundAudio');
     const generateBtn = document.getElementById('generateBtn');
     const nameContainer = document.getElementById('nameContainer');
-    
-    // Start playing the audio when the page loads
-    backgroundAudio.play();
+
+    // Start playing the audio when the document is ready
+    backgroundAudio.play().then(() => {}).catch(error => {
+        console.error('Error playing audio:', error);
+    });
 
     const generateName = () => {
         const selectedIndices = [];
@@ -142,3 +144,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     generateBtn.addEventListener("click", generateName);
 });
+
