@@ -364,13 +364,17 @@ const words = [
 ];
 
 const generateName = () => {
-    const randomIndex1 = Math.floor(Math.random() * words.length);
-    let randomIndex2 = Math.floor(Math.random() * words.length);
-    while (randomIndex2 === randomIndex1) {
-        randomIndex2 = Math.floor(Math.random() * words.length);
+    const selectedIndices = [];
+    while (selectedIndices.length < 3) {
+        const randomIndex = Math.floor(Math.random() * words.length);
+        if (!selectedIndices.includes(randomIndex)) {
+            selectedIndices.push(randomIndex);
+        }
     }
-    const name = words[randomIndex1] + " " + words[randomIndex2];
+
+    const name = words[selectedIndices[0]] + " " + words[selectedIndices[1]] + " " + words[selectedIndices[2]];
     document.getElementById("nameContainer").innerText = name;
 };
 
 document.getElementById("generateBtn").addEventListener("click", generateName);
+
