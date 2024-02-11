@@ -1,4 +1,5 @@
 const words = [
+    
     "Nano-Medic",
     "Virtual Reality Architect",
     "Quantum Data Analyst",
@@ -109,62 +110,10 @@ const words = [
     "Quantum Reality Designer",
     "Space Tourism Photographer",
     "Virtual Reality Teacher",
-    "Quantum Cryptocurrency Trader",
-    "Mind Uploading Engineer",
-    "Nanotechnology Fashion Designer",
-    "AI Fashion Model",
-    "Asteroid Mining Consultant",
-    "Quantum Reality Filmmaker",
-    "Cryogenic Sleep Artist",
-    "Teleportation Artist",
-    "AI Relationship Counselor",
-    "Holographic Interior Designer",
-    "Virtual Reality Personal Shopper",
-    "Quantum Data Scientist",
-    "Nanobot Engineer",
-    "Space Tourism Blogger",
-    "Mind Interface Designer",
-    "Neural Implant Artist",
-    "Genetic Memory Architect",
-    "Exosuit Fashion Designer",
-    "Telepathic Therapist",
-    "Quantum Reality Composer",
-    "AI Life Designer",
-    "Cryogenics Counselor",
-    "Biomechanical Artist",
-    "Virtual Reality Landscape Designer",
-    "Quantum Reality Illustrator",
-    "Time Travel Architect",
-    "AI Meditation Guide",
-    "Telepathic Artist",
-    "Holographic Musician",
-    "Quantum Entanglement Designer",
-    "Space Tourism Consultant",
-    "Virtual Reality Trainer",
-    "Cryogenic Sleep Consultant",
-    "Nanobot Architect",
-    "AI Fashion Consultant",
-    "Mind Interface Stylist",
-    "Neural Network Therapist",
-    "Genetic Memory Designer",
-    "Quantum Cryptography Artist",
-    "Bioluminescent Designer",
-    "Space Elevator Engineer",
-    "Virtual Reality Architect",
-    "Quantum Reality Engineer",
-    "Nanotechnology Consultant",
-    "AI Life Architect",
-    "Cryogenics Engineer",
-    "Biomechanical Engineer",
-    "Telepathic Communicator",
-    "Holographic Artist",
-    "Quantum Reality Designer",
-    "Space Tourism Photographer",
-    "Virtual Reality Teacher",
     "Robot Therapist",
     "DJ Butcher",
     "AI Cornocopia Designer",
-    "AI House Designer"
+    "AI House Designer",
     "Food Delivery Drone Pilot"
 ];
 
@@ -172,16 +121,15 @@ const words = [
 
 const generateName = () => {
     const selectedIndices = [];
-    while (selectedIndices.length < 1) { // Change to < 1 if you want to generate one word
+    while (selectedIndices.length < 1) {
         const randomIndex = Math.floor(Math.random() * words.length);
         if (!selectedIndices.includes(randomIndex)) {
             selectedIndices.push(randomIndex);
         }
     }
 
-    const name = words[selectedIndices[0]] + " " + words[selectedIndices[1]]; // Remove + " " + words[selectedIndices[2]] if you want to generate only one word
+    const name = words[selectedIndices[0]]; // Remove + " " + words[selectedIndices[1]] if you want to generate only one word
     document.getElementById("nameContainer").innerText = name;
 };
 
 document.getElementById("generateBtn").addEventListener("click", generateName);
-
