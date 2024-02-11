@@ -1,5 +1,6 @@
+/* General styles */
 body {
-    font-family: 'Sixtyfour', sans-serif;
+    font-family: 'Honk', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #111;
@@ -27,6 +28,7 @@ button {
     border: none;
     border-radius: 5px;
     margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font to button text */
 }
 
 button:hover {
@@ -35,5 +37,6 @@ button:hover {
 
 #nameContainer {
     font-size: 20px;
-    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font to output text */
 }
